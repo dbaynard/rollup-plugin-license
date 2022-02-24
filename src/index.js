@@ -60,7 +60,7 @@ export default function rollupPluginLicense(options = {}) {
               .value()
       );
 
-      return plugin.prependBanner(code, outputOptions.sourcemap !== false);
+      return plugin.prependBanner(code, outputOptions.sourcemap !== false, chunk.name);
     },
 
     /**

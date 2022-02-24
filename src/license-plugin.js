@@ -232,17 +232,18 @@ class LicensePlugin {
    *
    * @param {string} code The bundle content.
    * @param {boolean} sourcemap If sourcemap must be generated.
+   * @param {string} name Name of chunk
    * @return {Object} The result containing the code and, optionnally, the source map
    *                  if it has been enabled (using `enableSourceMap` method).
    */
-  prependBanner(code, sourcemap) {
+  prependBanner(code, sourcemap, name) {
     // Create a magicString: do not manipulate the string directly since it
     // will be used to generate the sourcemap.
     const magicString = new MagicString(code);
 
     const banner = this._options.banner;
     const content = this._readBanner(banner);
-    if (content) {
+    if (content && !!name.match(banner.matching ?? "")) {
       magicString.prepend(EOL);
       magicString.prepend(this._generateBanner(content, banner));
     }

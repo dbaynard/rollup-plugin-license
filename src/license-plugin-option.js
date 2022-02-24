@@ -47,6 +47,7 @@ const SCHEMA = {
     validators.object({
       commentStyle: validators.string(),
       data: validators.any(),
+      matching: validators.string(),
       content: [
         validators.func(),
         validators.string(),
