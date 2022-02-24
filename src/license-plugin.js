@@ -34,7 +34,7 @@ import packageNameRegex from 'package-name-regex';
 import {Dependency} from './dependency.js';
 import {generateBlockComment} from './generate-block-comment.js';
 import {licensePluginOptions} from './license-plugin-option.js';
-import {licenseValidator} from './license-validator';
+import {licenseValidator} from './license-validator.js';
 import {PLUGIN_NAME} from './license-plugin-name.js';
 import {EOL} from './eol.js';
 
