@@ -103,7 +103,9 @@ class LicensePlugin {
     this._options = options;
     this._cwd = this._options.cwd || process.cwd();
     this._dependencies = {};
-    this._pkg = require(path.join(this._cwd, 'package.json'));
+    this._pkg = JSON.parse(
+        fs.readFileSync(path.join(this._cwd, 'package.json'), 'utf-8')
+    );
     this._debug = this._options.debug || false;
 
     // SourceMap can now be disable/enable on the plugin.
