@@ -243,9 +243,10 @@ class LicensePlugin {
 
     const banner = this._options.banner;
     const content = this._readBanner(banner);
+    const tag = content?.split("\n")[0].match(/@license/) ? "" : "@license\n";
     if (content && !!name.match(banner.matching ?? "")) {
       magicString.prepend(EOL);
-      magicString.prepend(this._generateBanner(content, banner));
+      magicString.prepend(this._generateBanner(tag + content, banner));
     }
 
     const result = {
